@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Tech | Littile Sunshine]]></title>
+  <link href="http://vicky-sunshine.github.io/blog/categories/tech/atom.xml" rel="self"/>
+  <link href="http://vicky-sunshine.github.io/"/>
+  <updated>2017-03-28T01:07:35+08:00</updated>
+  <id>http://vicky-sunshine.github.io/</id>
+  <author>
+    <name><![CDATA[Chi-Hsuan Li]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Build Gem Note]]></title>
+    <link href="http://vicky-sunshine.github.io/blog/2016/01/15/build-gem-note/"/>
+    <updated>2016-01-15T02:15:45+08:00</updated>
+    <id>http://vicky-sunshine.github.io/blog/2016/01/15/build-gem-note</id>
+    <content type="html"><![CDATA[<p>嘗試自己做gem，但是build完之後，會出現</p>
+
+<pre><code>LoadError: cannot load such file -- weatherscout
+from /Users/Hsnl/.rvm/rubies/ruby-head/lib/ruby/site_ruby/2.3.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+</code></pre>
+
+<p>後來發現是因為lib底下最上層的檔案沒有跟gem的名字一樣
+下面 tree 中兩個粗體字就是應該要跟gem名稱一樣</p>
+
+<pre><code>.
+├── Gemfile
+├── Gemfile.lock
+├── LICENSE.txt
+├── README.md
+├── Rakefile
+├── bin
+│ └── weatherscout &lt;==
+├── lib
+│ ├── weatherdesc
+│ │ ├── daily_weather.rb
+│ │ └── version.rb
+│ └── weatherscout.rb &lt;==
+├── spec
+│ └── weatherdesc_spec.rb
+└── weatherscout.gemspec &lt;==
+</code></pre>
+
+<p>未來想改善一下weatherscout model的部分
+想加入weekly weather，而weekly和daily又有好多重複的部分，還沒決定這邊怎麼處理
+但是應該都會放在同一個module裡面
+這裡memo一下想用的寫法，將同個module的class放在不同檔案(dependency一向有點麻煩)</p>
+
+<p><a href="http://stackoverflow.com/questions/12035057/breaking-ruby-module-across-several-files">http://stackoverflow.com/questions/12035057/breaking-ruby-module-across-several-files</a></p>
+
+<p>另外version要怎麼update也另外記在這</p>
+
+<p>Semantic Versioning (semver.org): MAJOR.MINOR.PATCH
+<a href="http://semver.org">http://semver.org</a></p>
+
+<p>Increment the:</p>
+
+<ul>
+<li>MAJOR version when you make incompatible API changes,</li>
+<li>MINOR version when you add functionality in a backwards-compatible manner, and</li>
+<li>PATCH version when you make backwards-compatible bug fixes.</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[GitHub Work Flow]]></title>
+    <link href="http://vicky-sunshine.github.io/blog/2015/12/02/github-work-flow/"/>
+    <updated>2015-12-02T02:45:06+08:00</updated>
+    <id>http://vicky-sunshine.github.io/blog/2015/12/02/github-work-flow</id>
+    <content type="html"><![CDATA[<p>以 kiwi course 為例</p>
+
+<h2>First time collaborate</h2>
+
+<ol>
+<li>fork kiwi to your own repo from</li>
+<li>clone kiwi to local</li>
+<li>let your local repo link to upstream (i.e. organization repo, kiwi)</li>
+</ol>
+
+
+<pre><code>git remote add upstream git@github.com:Kiwi-Learn/kiwi-scraper.git
+</code></pre>
+
+<h2>Developing new feature</h2>
+
+<p>every time, you want to add new feature at local, open and checkout the branch to develop,</p>
+
+<pre><code>git checkout -b new-feature
+</code></pre>
+
+<p>then you can start programming under the new-feature branch</p>
+
+<h2>Finish Developing</h2>
+
+<p>when feature is done, commit first</p>
+
+<pre><code>git commit -m "blah blah..."
+</code></pre>
+
+<p>create/push to your own remote branch
+<code>
+git push origin new-feature
+</code>
+and then you can give kiwi a pull request after kiwi</p>
+
+<h2>Sync your own repo</h2>
+
+<p>If the project owner agrees to merge new feature, you can,</p>
+
+<p>1.sync your own repo master</p>
+
+<pre><code>git checkout master
+git fetch upstream
+git merge upstream/master
+git push origin master
+</code></pre>
+
+<p>2.remove local and remote branches you just used (notice you can’t at the branch you want to delete)</p>
+
+<ul>
+<li>delete local branch
+<code>
+git branch -d new-feature
+</code></li>
+<li>delete remote branch
+<code>
+git push origin --delete new-feature
+</code></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
