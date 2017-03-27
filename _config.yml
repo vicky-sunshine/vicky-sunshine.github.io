@@ -2,10 +2,10 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+url: http://vicky-sunshine.github.io
+title: Littile Sunshine
+subtitle: I don't want to be remembered, I just don't want to be forgotten.
+author: Chi-Hsuan Li
 simple_search: https://www.google.com/search
 description:
 
@@ -44,8 +44,9 @@ highlighter: pygments # default python pygments have been replaced by pygments.r
 paginate: 10          # Posts per page on the blog index
 paginate_path: "posts/:num"  # Directory base for pagination URLs eg. /posts/2/
 recent_posts: 5       # Posts in the sidebar Recent Posts section
-excerpt_link: "Read on &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
+excerpt_link: "閱讀更多 &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
 excerpt_separator: "<!--more-->"
+default_asides: [asides/recent_posts.html, asides/github.html]
 
 titlecase: true       # Converts page and post titles to titlecase
 
@@ -91,11 +92,11 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name:
-disqus_show_comment_count: false
+disqus_short_name: vicky-sunshine
+disqus_show_comment_count: true
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-71293366-1
 
 # Facebook Like
 facebook_like: false

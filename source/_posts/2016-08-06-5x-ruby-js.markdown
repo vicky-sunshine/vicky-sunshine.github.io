@@ -1,0 +1,23 @@
+---
+layout: post
+title: "五倍紅寶石 - JS & Jquery 課"
+date: 2016-08-06 02:20:39 +0800
+comments: true
+categories: life
+---
+
+講師： Kuro Hsu
+
+課程大綱： https://5xruby.tw/talks/JS-jQuery-2016-3
+
+之前寫網頁時，總是拼拼湊湊得從各個地方拾起如何去寫 Javascript，要操作 DOM 的時候，總是在 try and error 中學，在這次課程當中，重新把 JS 的概念重新梳理了一遍。
+
+最有印象的後面在講述 jQuery 動畫的時候，初學者可能會覺得 slideDown() 和 slideUp() 只是滑動方向的不同，但是其實 slideDown() 是顯示出現在畫面中，slideUp()則是隱藏，反而跟方向不太有關係，還有 HTML 當中每個元件的 class 屬性當中，前面的會被後面的覆蓋掉，假設說有個按鈕
+
+```
+<btn class="disable">
+```
+
+配合一些使用者觸發事件當中，我們可能會希望他變成可以按，此時我們不用特地去移除掉它原本的 disable，只要再加上 enable 這個 class 即可，這種特性在配合做動畫時特別好用。
+
+還有許多使用 Jquery 動畫效果細節，老師都很仔細的說明清楚，整理一些大家容易混淆的 function，並準備很多範例 code 給我們練習，實在獲益良多。
